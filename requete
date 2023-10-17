@@ -1,0 +1,29 @@
+1
+SELECT nom, annéeNaiss FROM artiste WHERE annéeNaiss<1970;
+2
+SELECT titre FROM film WHERE genre = 'Drame';
+3
+SELECT * FROM role RIGHT JOIN artiste ON nom = 'Willis';//
+4
+SELECT idréalisateur, nom, prénom FROM film RIGHT JOIN artiste ON idartiste = 525  WHERE titre = 'Memento';
+5
+SELECT note, titre FROM notation RIGHT JOIN film ON titre = 'Fargo'; // toutes les notes du film
+SELECT note, titre FROM notation NATURAL JOIN film WHERE titre = 'Fargo'; // une note du film
+6
+SELECT nom, prénom, nomrôle FROM artiste NATURAL JOIN role WHERE nomrôle = 'Chewbacca';
+7
+SELECT titre, idacteur FROM film NATURAL JOIN role WHERE nomrôle = 'John McClane';
+8
+SELECT nom, idartiste, titre, idréalisateur FROM artiste JOIN film ON titre = 'Sueurs froides';
+9
+SELECT email FROM internaute WHERE nom = 'Nom0';
+SELECT titre, note, email FROM film JOIN notation ON email = 'anon0@afpa-zakademie.com';
+10
+SELECT titre from film 
+JOIN role as Roles ON  film.idfilm = Roles.idfilm  
+JOIN artiste as Realisateur ON  film.idréalisateur = Realisateur.idartiste 
+JOIN artiste as Acteur ON Roles.idacteur = Acteur.idartiste  
+WHERE Realisateur.nom = 'Burton' 
+AND Realisateur.prénom = 'Tim' 
+AND Acteur.nom = 'Depp' 
+AND Acteur.prénom = 'Johnny';
